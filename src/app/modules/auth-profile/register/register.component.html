@@ -1,0 +1,103 @@
+<div class="axil-signin-area">
+
+  <!-- Start Header -->
+  <div class="signin-header">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <a href="index.html" class="site-logo"><img src="./assets/images/logo/logo.png" alt="logo"></a>
+      </div>
+      <div class="col-md-6">
+        <div class="singin-header-btn">
+          <p>Already a member?</p>
+          <a href="sign-in.html" class="axil-btn btn-bg-secondary sign-up-btn">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Header -->
+
+  <div class="row">
+    <div class="col-xl-4 col-lg-3">
+      <div class="axil-signin-banner bg_image bg_image--10">
+        <h3 class="title">We Offer the Best Products</h3>
+      </div>
+    </div>
+
+
+
+    <div class="col-lg-6 ">
+      <div class="axil-signin-form-wrap">
+        <div class="axil-signin-form">
+          <h3 class="title">I'm New Here</h3>
+          <p class="b2 mb-4">Enter your detail below</p>
+          <form class="singin-form">
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-group mb-4">
+                  <label>Nombre</label>
+                  <input type="text" [(ngModel)]="name" class="form-control" name="name">
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group mb-4">
+                  <label>Apellidos</label>
+                  <input type="text" [(ngModel)]="surname" class="form-control" name="surname">
+                </div>
+              </div>
+            </div>
+
+            <!-- Espacio vertical para dispositivos medianos y grandes -->
+            <div class="my-4 d-none d-md-block"></div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-4">
+                  <label>Correo Electrónico: <span>*</span></label>
+                  <input type="email" [(ngModel)]="email" class="form-control" name="email">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-4">
+                  <label>Contraseña</label>
+                  <input type="password" [(ngModel)]="password" class="form-control" name="password">
+                </div>
+              </div>
+            </div>
+
+            <!-- Espacio vertical para dispositivos medianos y grandes -->
+            <div class="my-4 d-none d-md-block"></div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-4">
+                  <label>Repetir Contraseña</label>
+                  <input type="password" [(ngModel)]="r_password" class="form-control" name="r_password"
+                    value="123456789">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <!-- Deja este espacio en blanco para mantener la estructura de dos campos por fila -->
+              </div>
+            </div>
+
+            <!-- Espacio vertical para dispositivos pequeños -->
+            <div class="my-4 d-md-none"></div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group mb-4">
+                  <button type="submit" (click)="register()" class="axil-btn btn-bg-primary submit-btn">Create Account</button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
