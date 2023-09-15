@@ -19,7 +19,11 @@ export class LoginComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    /* No dejar que vuelva a la vista del login si ya esta autenticado */
 
+    if (this.authService.user && this.authService.token) {
+      this.router.navigate(["/"]);
+    }
   }
 
   login() {
