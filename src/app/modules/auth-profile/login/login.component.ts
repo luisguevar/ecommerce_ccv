@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         await this.router.navigate(["/"]);
         document.location.reload();
       } else {
-        if (resp.error.error == 'Unauthorized') {
+        if (resp.error.error == 'Unauthorized' || resp.error.message == 'Unauthenticated.') {
           alert('CREDENCIALES INCORRECTAS');
           return;
         }

@@ -43,7 +43,7 @@ export class AuthService {
 
 
   login(email: string, password: string) {
-    let URL = URL_SERVICIOS + '/users/login';
+    let URL = URL_SERVICIOS + '/users/login_ecommerce';
     return this.http.post(URL, { email, password }).pipe(
       map((resp: any) => {
         if (resp.access_token) {

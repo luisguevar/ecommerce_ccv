@@ -48,6 +48,7 @@ export class RegisterComponent implements OnInit {
       email: this.email,
       password: this.password,
       r_password: this.r_password,
+      type_user: 1 //tipo usuario
     }
     this.authService.register(data).subscribe((resp: any) => {
       console.log(resp);
