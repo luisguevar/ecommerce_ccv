@@ -1,6 +1,6 @@
-(initPageEcommerce($))(window, document, jQuery);
+// ()(window, document, jQuery);
 
-function initPageEcommerce($, undefined) {
+function HOMEINITTEMPLATE($, undefined) {
   'use strict';
 
   var axilInit = {
