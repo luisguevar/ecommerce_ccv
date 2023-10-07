@@ -23,10 +23,10 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    setTimeout(() => {
+   /*  setTimeout(() => {
       initPageEcommerce($);
     }, 50);
-
+ */
     this.user = this.authSerive.user;
     console.log('user: ', this.user)
   }
