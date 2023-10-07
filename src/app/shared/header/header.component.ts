@@ -23,10 +23,10 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-   /*  setTimeout(() => {
-      initPageEcommerce($);
-    }, 50);
- */
+    /*  setTimeout(() => {
+       initPageEcommerce($);
+     }, 50);
+  */
     this.user = this.authSerive.user;
     console.log('user: ', this.user)
   }
@@ -36,5 +36,9 @@ export class HeaderComponent implements OnInit {
     this.authSerive.logout();
     await this.router.navigate(["/"]);
     document.location.reload();
+  }
+
+  isHome() {
+    return this.router.url == "" || this.router.url == "/" ? true : false;
   }
 }

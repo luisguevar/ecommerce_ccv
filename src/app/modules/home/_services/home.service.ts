@@ -20,4 +20,9 @@ export class HomeService {
     let URL = URL_SERVICIOS + "/ecommerce/home";
     return this.http.get(URL);
   }
+
+  detailProduct(slug_product: any) {
+    let URL = URL_SERVICIOS + "/ecommerce/detail-product/" + slug_product;
+    return this.http.get(URL);
+  }
 }

@@ -1,0 +1,20 @@
+.image-container {
+  width: 300px;
+  height: 300px
+}
+
+.image-container img {
+  object-fit: contain;
+  height: 250px;
+}
+
+.image-container-category {
+  height: 190px;
+  width: 150px;
+}
+
+.image-container-category img {
+  height: 120px;
+  object-fit: contain;
+  width: 180px;
+}

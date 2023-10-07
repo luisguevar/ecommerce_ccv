@@ -464,37 +464,7 @@ function HOMEINITTEMPLATE($, undefined) {
         ]
       });
 
-      $('.recent-product-activation').slick({
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        arrows: true,
-        dots: false,
-        prevArrow: '<button class="slide-arrow prev-arrow"><i class="fal fa-long-arrow-left"></i></button>',
-        nextArrow: '<button class="slide-arrow next-arrow"><i class="fal fa-long-arrow-right"></i></button>',
-        responsive: [{
-          breakpoint: 1199,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3
-          }
-        },
-        {
-          breakpoint: 991,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        },
-        {
-          breakpoint: 479,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-        ]
-      });
+
 
       $('.header-campaign-activation').slick({
         infinite: true,
@@ -992,4 +962,74 @@ function HOMEINITTEMPLATE($, undefined) {
   }
   axilInit.i();
 
+}
+
+function ModalProductDetail() {
+  $('.product-large-thumbnail').slick({
+    infinite: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    speed: 800,
+    draggable: false,
+    asNavFor: '.product-small-thumb'
+  });
+
+  $('.product-small-thumb').slick({
+    infinite: false,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    focusOnSelect: true,
+    vertical: true,
+    speed: 800,
+    asNavFor: '.product-large-thumbnail',
+    responsive: [{
+      breakpoint: 992,
+      settings: {
+        vertical: false,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        vertical: false,
+        slidesToShow: 4,
+      }
+    }
+    ]
+
+  });
+
+  if ($('.zoom-gallery').length) {
+    $('.zoom-gallery').each(function () {
+      $('.zoom-gallery').magnificPopup({
+        delegate: 'a.popup-zoom',
+        type: 'image',
+        gallery: {
+          enabled: true
+        }
+      });
+    });
+  }
+
+  $('.pro-qty').prepend('<span class="dec qtybtn">-</span>');
+  $('.pro-qty').append('<span class="inc qtybtn">+</span>');
+  $('.qtybtn').on('click', function () {
+    var $button = $('.pro-qty');
+    var oldValue = $button.parent().find('input').val();
+    if ($button.hasClass('inc')) {
+      var newVal = parseFloat(oldValue) + 1;
+    } else {
+      // Don't allow decrementing below zero
+      if (oldValue > 0) {
+        var newVal = parseFloat(oldValue) - 1;
+      } else {
+        newVal = 0;
+      }
+    }
+    $button.parent().find('input').val(newVal);
+  });
 }

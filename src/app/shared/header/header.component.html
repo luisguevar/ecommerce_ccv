@@ -58,12 +58,13 @@
     <div class="container">
       <div class="header-navbar">
         <div class="header-nav-department">
+
           <aside class="header-department">
             <button class="header-department-text department-title">
               <span class="icon"><i class="fal fa-bars"></i></span>
               <span class="text">Categories</span>
             </button>
-            <nav class="department-nav-menu">
+            <nav class="department-nav-menu" [ngClass]="{'d-none': !isHome()}">
               <button class="sidebar-close"><i class="fas fa-times"></i></button>
               <ul class="nav-menu-list">
                 <li>
