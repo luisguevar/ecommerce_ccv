@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CartShopsService } from 'src/app/modules/home/_services/cart-shops.service';
 declare var $: any;
 declare function HOMEINITTEMPLATE([]): any;
 declare function ModalProductDetail(): any;
@@ -14,6 +15,9 @@ export class CDatailProductComponent implements OnInit {
   @Input() product_selected: any;
   @Input() is_landing: boolean = false;
 
+  constructor(public _cartService: CartShopsService) {
+
+  }
   ngOnInit(): void {
 
     if (this.is_landing) {
@@ -25,5 +29,7 @@ export class CDatailProductComponent implements OnInit {
     }
   }
 
-
+  addCart(product_selected: any) {
+    this._cartService.changeCart(product_selected);
+  }
 }

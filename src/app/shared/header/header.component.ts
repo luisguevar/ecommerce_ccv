@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/auth-profile/_services/auth.service';
+import { CartShopsService } from 'src/app/modules/home/_services/cart-shops.service';
 declare var $: any;
 declare function initPageEcommerce([]): any;
 @Component({
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public authSerive: AuthService,
-    private router: Router
+    private router: Router,
+    public _cartService: CartShopsService
   ) {
 
   }
@@ -29,6 +31,10 @@ export class HeaderComponent implements OnInit {
   */
     this.user = this.authSerive.user;
     console.log('user: ', this.user)
+
+    this._cartService.currentDataCart$.subscribe((resp: any) => {
+      console.log(resp);
+    });
   }
 
 

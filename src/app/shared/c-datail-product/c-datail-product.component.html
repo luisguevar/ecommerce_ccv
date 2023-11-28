@@ -52,14 +52,14 @@
             <h3 class="product-title">{{product_selected.title}}</h3>
             <span class="price-amount"> {{product_selected.price_soles}} PEN - {{product_selected.price_usd}}
               USD
-              USD</span>
+            </span>
             <ul class="product-meta">
               <li><i class="fal fa-check"></i>In stock</li>
               <li><i class="fal fa-check"></i>Free delivery available</li>
               <li><i class="fal fa-check"></i>Sales 30% Off Use Code: MOTIVE30</li>
             </ul>
             <p class="description">{{product_selected.resumen}}</p>
-
+            <p class="product-title"> Stock: {{product_selected.stock}}</p>
             <div class="product-variations-wrapper">
 
               <!-- Start Product Variation  -->
@@ -101,7 +101,8 @@
 
               <!-- Start Product Action  -->
               <ul class="product-action d-flex-center mb--0">
-                <li class="add-to-cart"><a href="cart.html" class="axil-btn btn-bg-primary">Add to Cart</a></li>
+                <li class="add-to-cart"><a href="cart.html" onclick="return false;" (click)="addCart(product_selected)"
+                    class="axil-btn btn-bg-primary">Add to Cart</a></li>
                 <li class="wishlist"><a href="wishlist.html" class="axil-btn wishlist-btn"><i
                       class="far fa-heart"></i></a></li>
               </ul>
