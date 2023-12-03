@@ -22,6 +22,7 @@ import { RouterModule } from '@angular/router';
     AuthProfileRoutingModule,
     SharedModule,
     CommonModule,
+    //
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

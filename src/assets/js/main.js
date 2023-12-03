@@ -1033,3 +1033,4 @@ function ModalProductDetail() {
     $button.parent().find('input').val(newVal);
   });
 }
+

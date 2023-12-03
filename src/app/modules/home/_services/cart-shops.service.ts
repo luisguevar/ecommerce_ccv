@@ -43,6 +43,11 @@ export class CartShopsService {
     this.cart.next(listCart);
   }
 
+  listCartShop() {
+    let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this._authServices.token });
+    let URL = URL_SERVICIOS + "/ecommerce/cart/add";
+    return this.http.get(URL, { headers: headers })
+  }
   addCartShop(data: any) {
 
     let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this._authServices.token });
@@ -60,5 +65,9 @@ export class CartShopsService {
     let headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this._authServices.token });
     let URL = URL_SERVICIOS + "/ecommerce/cart/add/" + cart_id;
     return this.http.delete(URL, { headers: headers })
+  }
+
+  ToDolar(){
+    return this.http.get("https://deperu.com/api/rest/cotizaciondolar.json");
   }
 }

@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/auth-profile/_services/auth.service';
 import { CartShopsService } from 'src/app/modules/home/_services/cart-shops.service';
-declare var $: any;
-declare function initPageEcommerce([]): any;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,7 +11,8 @@ declare function initPageEcommerce([]): any;
 export class HeaderComponent implements OnInit {
 
   user: any = null;
-
+  listCart: any = [];
+  total: any = 0;
   constructor(
     public authSerive: AuthService,
     private router: Router,
@@ -25,15 +25,21 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    /*  setTimeout(() => {
-       initPageEcommerce($);
-     }, 50);
-  */
-    this.user = this.authSerive.user;
-    console.log('user: ', this.user)
 
+    this.user = this.authSerive.user;
+    //console.log('user: ', this.user)
+    this._cartService.listCartShop().subscribe((resp: any) => {
+      //console.log(resp);
+
+      resp.carts.data.forEach((element: any) => {
+        this._cartService.changeCart(element)
+      });
+      this.listCart = resp.carts.data;
+    });
     this._cartService.currentDataCart$.subscribe((resp: any) => {
-      console.log(resp);
+      //console.log(resp);
+      this.listCart = resp;
+      this.total = this.listCart.reduce((sum: any, item: any) => sum = item.product.price_soles, 0);
     });
   }
 
